@@ -1,34 +1,39 @@
 # Content Guide — Before You Publish
 
-Career details were filled in from a **screenshot of your LinkedIn profile** (2026-07-12). The
-screenshot was low-resolution, so **every date and small detail must be verified against your
-actual CV** — items I could not read confidently are marked **in amber with a dashed underline**
-on the page and tagged `[verify: ...]` or `[EDIT: ...]` in `index.html`. Do not publish (and
-definitely do not cite in an NIW petition) until all are confirmed.
+Career details were filled in from your **complete LinkedIn source-data file**
+(`Claude_LinkedIn_Profile_Complete_Input.md`, 2026-07-13). Dates, employers, projects, trainings,
+and volunteering now match that record exactly.
 
-## Facts taken from the LinkedIn screenshot — confirm each one
-
-- Full name: Maeen Uddin Mohammad Abdur Rahman (short form "Maeen Uddin" used in the UI)
-- Graduate Research Assistant + M.S. EE, Wentworth Institute of Technology, Boston, MA
-- Engineer → Senior Engineer, 132/33 kV grid substation, PHP Integrated Steel Mills Ltd. (~5 yrs; promoted 2023?)
-- PHP 132/33 kV grid substation + 132 kV transmission line project, Feni, Bangladesh
-- 11/0.415 kV substation installation & commissioning, Western Marine Shipyard Limited
-- B.Sc. EEE, International Islamic University Chittagong; capstone = university bus-tracking system (you told me this)
-- Rotaract Club President, British Council Active Citizen, "Student of the Batch" award
-- Tools: MATLAB, AutoCAD Electrical
-
-## Remaining placeholders (search index.html for `[verify` and `[EDIT`)
+## Remaining placeholders (search index.html for `[EDIT`)
 
 | Section | What's needed |
 |---|---|
-| `<head>` | Your real domain in `canonical`, `og:url`, and the JSON-LD `url` |
-| Background → Wentworth | Start date; expected graduation year |
-| Background → PHP | Exact employment years; promotion year |
-| Background → Early career | Exact roles/companies/years (intern role — Energypac? — was unreadable) |
-| Background → B.Sc. | Years |
-| Leadership cards | Rotaract club name & years; award issuer & year |
-| Expertise → Tools | Your EMT/simulation platform and any other tools |
-| Publications | Co-authors, target venue; thesis expected year; delete or fill the third entry |
+| `<head>` | Your real domain in `canonical`, `og:url`, and the JSON-LD `url` (still `example.com`) |
+| Background → B.Sc. | Years at International Islamic University Chittagong (not on your LinkedIn) |
+| Publications | Co-authors and target venue for the 11 kV feeder paper; delete or fill the third entry |
+
+## ⚠ One inconsistency to resolve: thesis title
+
+- **This site** (and your message to me) uses: *"Traveling-Wave versus Impedance-Based Fault
+  Location Under Inverter-Based-Resource Penetration and Realistic Measurement Chains:
+  A Statistically Designed Comparative Study"*
+- **Your LinkedIn** says: *"Travelling-Wave vs Impedance-Based Fault Location: A Practical
+  Comparative Study Using MATLAB/Simulink"*
+
+For an NIW petition, the thesis title must read **identically** everywhere USCIS might look
+(site, LinkedIn, CV, university records). Decide which is current and align the others.
+Note LinkedIn also says the thesis compares methods "on transmission networks" — make sure that
+wording stays consistent with the final thesis scope too.
+
+## Deliberately left off the site (on your LinkedIn, available if you want them)
+
+- "Student of the Batch" award (BITM, 2017) — it's for an SEO training course; it would dilute
+  the power-engineering narrative for NIW reviewers. Say the word if you want it back.
+- LinkedIn-Learning certificates (AutoCAD Electrical, Project Leadership, Risk, Networking) —
+  the AutoCAD skill itself is listed under Tools; course certificates are weak evidence.
+- Advanced SEO certification (BITM, 2017) — off-topic for the endeavor.
+- The recommendation from Ahasanul Hoque — testimonials can be added later; strongest once you
+  have research-related ones too.
 
 ## How this site supports an EB-2 NIW petition
 
