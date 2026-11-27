@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://r4h47.github.io/personal-site/sitemap.xml
