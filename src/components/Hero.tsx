@@ -11,10 +11,7 @@ export function Hero() {
 
       <div className="container-page relative grid items-center gap-10 pt-10 pb-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-14 lg:pt-12 lg:pb-12">
         <div>
-          <p className="eyebrow flex items-center gap-2">
-            <span aria-hidden="true" className="live-dot inline-block size-1.5 rounded-full bg-accent" />
-            {person.fullName}
-          </p>
+          <p className="eyebrow">{person.fullName}</p>
 
           <h1 id="hero-title" className="mt-5 text-[clamp(2.25rem,5.2vw,3.75rem)] leading-[1.04] font-semibold tracking-[-0.035em] text-ink">
             {person.headline}
@@ -24,13 +21,14 @@ export function Hero() {
           </p>
 
           <p className="mt-6 max-w-[58ch] text-base leading-7 text-ink-muted">
-            For more than seven years I led operation and maintenance of the 132/11&nbsp;kV grid substation
-            behind a 24/7 steel mill — protection, outage planning, and emergency restoration on rotating
-            shifts. I now pair that field record with M.S. research on transmission-line fault location at
-            Wentworth Institute of Technology.
+            I spent seven and a half years in operation and maintenance of the 132/11&nbsp;kV AIS grid substation
+            supplying a 24/7 steel mill — scheduled maintenance outages, root-cause analysis from relay event data,
+            and emergency restoration on rotating shifts — and was promoted to Senior Engineer in 2022. Since 2024
+            I&apos;ve worked on fault-location research at Wentworth Institute of Technology.
           </p>
 
-          <ul className="mt-7 flex flex-wrap gap-2" aria-label="Availability">
+          <p id="availability-label" className="eyebrow mt-7">Open to</p>
+          <ul className="mt-3 flex flex-wrap gap-2" aria-labelledby="availability-label">
             {person.availabilityBadges.map((b) => (
               <li
                 key={b}
@@ -47,8 +45,8 @@ export function Hero() {
               View field experience
             </a>
             <Link href="/resume/" className={btn.secondary}>
-              <Icon name="file" size={16} />
-              Download CV
+              <Icon name="printer" size={16} />
+              CV / Print view
             </Link>
           </div>
         </div>

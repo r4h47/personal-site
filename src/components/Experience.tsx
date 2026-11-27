@@ -20,7 +20,7 @@ export function Experience() {
           index="01"
           eyebrow="Experience"
           title="Field operations, commissioning, and research"
-          lede="Seven and a half years running a live 132/11 kV substation, preceded by panel QA/QC and commissioning work and followed by graduate research in fault location."
+          lede="Seven and a half years in operation and maintenance of a 132/11 kV grid substation, preceded by protection-panel QA/QC, testing, and commissioning work, and followed by graduate research on fault location."
         />
 
         <div className="mt-10 flex flex-wrap gap-2" role="group" aria-label="Filter experience">

@@ -49,7 +49,7 @@ export function SkillsMatrix() {
           index="03"
           eyebrow="Technical matrix"
           title="Search the technical stack"
-          lede="Type a keyword from your job description — SFRA, IEC 61850, ATS, SCADA — to see where it shows up in my work."
+          lede="Search a keyword from your job description — SFRA, ATS, MiCOM, SCADA — to check it against my field experience, training, and research."
         />
 
         <div className="mt-10 rounded-xl border border-line bg-surface">

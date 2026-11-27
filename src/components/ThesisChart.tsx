@@ -12,12 +12,11 @@ const ticks = [0, 0.5, 1, 1.5, 2, 2.5];
 export function ThesisChart() {
   const [view, setView] = useState<View>("error");
   const twKm = thesis.twMedianErrorM / 1000;
-  const ratio = Math.round(thesis.takagiMedianErrorKm / twKm);
 
   return (
     <div className="flex h-full flex-col">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="eyebrow">Results · {thesis.scenarios} simulated scenarios</p>
+        <p className="eyebrow">Results · {thesis.cases} EMT fault cases</p>
         <div className="inline-flex rounded-lg border border-line bg-canvas p-0.5" role="group" aria-label="Chart view">
           {(
             [
@@ -81,16 +80,16 @@ export function ThesisChart() {
             </div>
           </div>
 
-          <p className="mt-5 text-sm text-ink-muted">
-            TW&apos;s median error was roughly <strong className="font-semibold text-ink tabular-nums">{ratio}×</strong> smaller
-            than the impedance-based Takagi method.
+          <p className="mt-5 text-sm text-ink-muted tabular-nums">
+            TW maximum error: <strong className="font-semibold text-ink">{thesis.twMaxErrorM} m</strong>. TW figures cover the{" "}
+            {thesis.twDetected} of {thesis.cases} cases where TW detected the fault.
           </p>
         </figure>
       ) : (
         <figure className="mt-6" key="accuracy">
-          <figcaption className="text-sm text-ink-muted">Share of simulated faults — higher is better.</figcaption>
+          <figcaption className="text-sm text-ink-muted">Share of {thesis.cases} simulated fault cases — higher is better.</figcaption>
           <div className="mt-5 grid gap-6">
-            <Meter label="TW detection rate" value={thesis.twDetection} />
+            <Meter label={`TW detection rate (${thesis.twDetected} / ${thesis.cases})`} value={thesis.twDetection} />
             <Meter label="Combined accuracy within 2 km" value={thesis.combinedWithin2km} />
           </div>
         </figure>
@@ -98,15 +97,21 @@ export function ThesisChart() {
 
       <div className="sr-only">
       <table>
-        <caption>Thesis results across {thesis.scenarios} simulated fault scenarios</caption>
+        <caption>Thesis results across {thesis.cases} noise-free EMT fault cases</caption>
         <tbody>
           <tr>
             <th scope="row">TW detection rate</th>
-            <td>{thesis.twDetection}%</td>
+            <td>
+              {thesis.twDetection}% ({thesis.twDetected} of {thesis.cases})
+            </td>
           </tr>
           <tr>
             <th scope="row">TW median location error</th>
             <td>{thesis.twMedianErrorM} m</td>
+          </tr>
+          <tr>
+            <th scope="row">TW maximum location error</th>
+            <td>{thesis.twMaxErrorM} m</td>
           </tr>
           <tr>
             <th scope="row">Takagi median location error</th>

@@ -16,7 +16,7 @@ export function Projects() {
           index="02"
           eyebrow="Research & case studies"
           title="Selected research and commissioning work"
-          lede="One thesis that quantifies how well grid faults can be located, and the field projects where I tested and energized the equipment those methods protect."
+          lede="A simulation-based thesis comparing two fault-location methods, and field projects where I installed, tested, and commissioned HV/MV equipment."
         />
 
         {/* Thesis */}
@@ -30,15 +30,16 @@ export function Projects() {
               {thesis.institution} · {thesis.tools}
             </p>
             <p className="mt-5 text-[15px] leading-relaxed text-ink-muted">
-              A MATLAB/Simulink study of a 230&nbsp;kV transmission line comparing travelling-wave fault location with
-              the impedance-based Takagi method across {thesis.scenarios} simulated fault scenarios.
+              An electromagnetic-transient (EMT) study in MATLAB/Simulink of a {thesis.line}, comparing travelling-wave
+              fault location with the impedance-based Takagi method across {thesis.cases} fault cases.
             </p>
+            <p className="mt-3 border-l-2 border-line-strong pl-3 text-sm leading-relaxed text-ink-subtle">{thesis.caveat}</p>
 
             <dl className="mt-6 grid grid-cols-2 border-t border-line">
               {[
-                [thesis.scenarios, "Simulated scenarios"],
-                [`${thesis.twDetection}%`, "TW detection rate"],
-                [`${thesis.twMedianErrorM} m`, "TW median error"],
+                [thesis.cases, "Noise-free EMT fault cases"],
+                [`${thesis.twDetection}%`, `TW detection (${thesis.twDetected} / ${thesis.cases})`],
+                [`${thesis.twMedianErrorM} m`, `TW median error (max ${thesis.twMaxErrorM} m)`],
                 [`${thesis.combinedWithin2km.toFixed(1)}%`, "Combined accuracy ≤ 2 km"],
               ].map(([v, k], i) => (
                 <div key={k} className={`border-b border-line py-4 ${i % 2 === 1 ? "border-l pl-4" : "pr-4"}`}>

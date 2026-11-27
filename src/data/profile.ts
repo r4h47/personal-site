@@ -8,7 +8,7 @@ export const site = {
   url: "https://r4h47.github.io/personal-site",
   title: "Maeen Uddin — Electrical Power Systems Engineer",
   description:
-    "Electrical power systems engineer with 8+ years of industrial and HV field experience: led O&M of a 132/11 kV AIS grid substation for a 24/7 steel mill, HV diagnostics and commissioning, and M.S. research on travelling-wave fault location. Open to relocation for data center, critical infrastructure, and semiconductor roles.",
+    "Electrical power systems engineer with 8+ years of industrial and HV field experience: operation and maintenance of a 132/11 kV AIS grid substation supplying a 24/7 steel mill (Senior Engineer from 2022), transformer testing and substation commissioning, and an M.S. simulation thesis on travelling-wave vs. impedance-based fault location. Open to relocation for data center, critical infrastructure, and semiconductor roles.",
 };
 
 export const person = {
@@ -17,7 +17,7 @@ export const person = {
   shortName: "Maeen Uddin",
   roleTag: "Electrical Power Systems & Critical Infrastructure Engineer",
   headline: "Electrical Power Systems Engineer",
-  headlineSub: "Critical Infrastructure, HV Diagnostics & Data Center Power",
+  headlineSub: "Critical Infrastructure, Field Service & HV Diagnostics",
   cvHeadline:
     "Electrical Power Systems Engineer | Critical Infrastructure | Field Service & HV Diagnostics",
   location: "Boston, MA",
@@ -26,11 +26,12 @@ export const person = {
   email: "maeen.uddin@live.com",
   linkedin: "https://www.linkedin.com/in/maeenuddin/",
   linkedinLabel: "linkedin.com/in/maeenuddin",
+  // Rendered under an explicit "Open to" label — these are availability, not experience claims.
   availabilityBadges: [
-    "Open to Relocation",
-    "Data Center & Critical Infrastructure",
-    "Semiconductor Cleanroom Ready",
-    "Field Service & Rotating Shifts",
+    "Relocation",
+    "Data center & critical infrastructure roles",
+    "Semiconductor cleanroom work",
+    "Field service & rotating shifts",
   ],
   availability:
     "Open to relocation, rotating shifts, domestic and international travel, semiconductor cleanroom work, and data center critical infrastructure.",
@@ -52,8 +53,8 @@ export const navItems = [
 
 export const metrics = [
   { value: "8+", unit: "Years", label: "Industrial power & HV field engineering" },
-  { value: "+40%", unit: "Reliability", label: "132/11 kV AIS substation uptime" },
-  { value: "10–20", unit: "Min", label: "Emergency fault restoration SLA" },
+  { value: "+40%", unit: "Reliability", label: "Reliability improvement, 132/11 kV AIS substation" },
+  { value: "10–20", unit: "Min", label: "Emergency breakdown restoration time" },
   { value: "3.74", unit: "/ 4.00", label: "M.S. Electrical Engineering GPA, Wentworth" },
 ];
 
@@ -106,7 +107,7 @@ export const experience: Role[] = [
     categories: ["research"],
     bullets: [
       "Investigated transmission-line fault-location algorithms using MATLAB/Simulink.",
-      "M.S. thesis: travelling-wave vs. impedance-based fault location on a 230 kV transmission line, evaluated across 3,600 simulated fault scenarios.",
+      "M.S. thesis: compared travelling-wave and impedance-based (Takagi) fault location on a 200 km, 230 kV transmission line across 3,600 noise-free EMT fault cases.",
     ],
   },
   {
@@ -119,14 +120,14 @@ export const experience: Role[] = [
     note: "Promoted to Senior Engineer in Aug 2022",
     categories: ["substation", "commissioning"],
     bullets: [
-      "Led the 132/11 kV AIS grid substation supplying a 24/7 steel mill, improving reliability by 40%.",
-      "Planned and executed 4 scheduled annual maintenance outages, holding the breakdown rate below 1%.",
-      "Worked 4 years of rotating shifts, restoring 8–15 emergency breakdowns per year within 10–20 minutes.",
-      "Performed root-cause analysis from relay event data, improving restoration efficiency by 30%.",
-      "Ran annual testing of 17 breakers and triennial relay calibration; reduced OLTC operations by 40%.",
-      "Managed ~300 spare parts — a $500,000 inventory.",
-      "Primary contact with PGCB (national grid) and NLDC (load despatch) for shutdowns, clearances, and grid compliance.",
-      "Enforced LOTO and HV safety procedures, reducing incident rates by 25%.",
+      "Led the 132/11 kV AIS grid substation supplying a 24/7 steel mill; reliability improved by 40%.",
+      "4 scheduled annual maintenance outages, with the breakdown rate kept below 1%.",
+      "4 years on rotating shifts, restoring 8–15 emergency breakdowns per year within 10–20 minutes.",
+      "Root-cause analysis using relay event data; restoration efficiency improved by 30%.",
+      "Annual testing of 17 breakers and triennial relay calibration; OLTC operations reduced by 40%.",
+      "Managed ~300 spare parts, valued at $500,000.",
+      "The substation's primary contact with PGCB (transmission utility) and NLDC (National Load Despatch Centre) for planned shutdowns, maintenance clearances, and grid compliance.",
+      "Enforced LOTO and HV safety procedures; incident rates reduced by 25%.",
     ],
     equipment: [
       { qty: "4", item: "132 kV SF6 circuit breakers" },
@@ -160,9 +161,9 @@ export const experience: Role[] = [
     categories: ["commissioning"],
     bullets: [
       "Supervised installation and QA/QC of 50+ IEC-compliant protection and control panels.",
-      "Calculated and set protection relay settings for 10+ projects.",
-      "Executed factory and site acceptance tests (FAT/SAT) on transformers and switchgear.",
-      "Promoted to Team Lead within 6 months, managing a team of 12 engineers.",
+      "Calculated protection relay settings for 10+ projects.",
+      "Performed factory and site acceptance tests (FAT/SAT) on transformers and switchgear.",
+      "As Team Lead, managed a team of 12 engineers.",
     ],
   },
 ];
@@ -177,11 +178,17 @@ export const thesis = {
     "Comparative Analysis of Travelling-Wave (TW) and Impedance-Based Fault Location on a 230 kV Transmission Line",
   institution: "Wentworth Institute of Technology",
   tools: "MATLAB / Simulink",
-  scenarios: "3,600",
-  twDetection: 91.7,
+  line: "200 km, 230 kV transmission line",
+  conditions: "noise-free EMT simulation",
+  cases: "3,600",
+  twDetected: "3,300",
+  twDetection: 91.7, // 3,300 / 3,600
   twMedianErrorM: 104,
+  twMaxErrorM: 329,
   takagiMedianErrorKm: 2.2,
   combinedWithin2km: 96.0,
+  caveat:
+    "Simulation-only results under noise-free conditions; not validated with field measurements or hardware-in-the-loop testing.",
 };
 
 export const manuscript = {
@@ -200,7 +207,7 @@ export const projects = {
     scope: [
       { k: "Interconnection", v: "132 kV LILO — overhead / underground interfaces" },
       { k: "Power transformer", v: "30/35 MVA, 132/11 kV" },
-      { k: "Auxiliary transformer", v: "500 kVA, 11/0.415 kV cast-resin" },
+      { k: "Cast-resin transformer", v: "500 kVA, 11/0.415 kV" },
       { k: "Standby generation", v: "2 × 1,250 kVA diesel generators + ATS" },
       { k: "Distribution", v: "11 kV underground network across the plant" },
     ],
@@ -224,7 +231,6 @@ export const projects = {
       "Partial discharge (PD)",
       "SFRA / frequency response",
       "Tan delta & capacitance",
-      "DGA",
       "Oil BDV",
       "TTR / voltage ratio",
       "Winding resistance",
@@ -260,9 +266,9 @@ export const skillCategories: SkillCategory[] = [
       { name: "OLTC operation", aliases: ["on-load tap changer", "tap changer"] },
       { name: "HV switchgear", aliases: ["switchboard"] },
       { name: "Standby diesel generators & ATS", aliases: ["generator", "transfer switch", "backup power"] },
-      { name: "NiCd battery banks & chargers", aliases: ["dc system", "battery", "ups"] },
+      { name: "NiCd battery banks & chargers", aliases: ["dc system", "battery"] },
       { name: "11 kV underground distribution", aliases: ["cable", "medium voltage", "mv"] },
-      { name: "LOTO & HV safety", aliases: ["lockout tagout", "safety", "permit to work"] },
+      { name: "LOTO & HV safety", aliases: ["lockout tagout", "safety"] },
       { name: "Preventive maintenance & outage planning", aliases: ["o&m", "maintenance", "shutdown"] },
     ],
   },
@@ -276,7 +282,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "DGA", aliases: ["dissolved gas analysis", "oil analysis"] },
       { name: "Oil BDV", aliases: ["breakdown voltage", "dielectric strength", "oil test"] },
       { name: "TTR / voltage ratio", aliases: ["turns ratio", "ratio test"] },
-      { name: "Winding & insulation resistance", aliases: ["ir test", "megger", "winding resistance"] },
+      { name: "Winding & insulation resistance", aliases: ["ir test", "winding resistance"] },
       { name: "Polarity & vector group", aliases: ["phase", "vector"] },
       { name: "No-load & load loss testing", aliases: ["losses"] },
       { name: "Temperature-rise testing", aliases: ["heat run"] },
@@ -292,13 +298,13 @@ export const skillCategories: SkillCategory[] = [
       { name: "ABB relays" },
       { name: "MiCOM OC/EF relays", aliases: ["overcurrent", "earth fault", "schneider"] },
       { name: "MiCOM busbar protection", aliases: ["busbar"] },
-      { name: "IEC 61850", aliases: ["substation automation", "goose"] },
+      { name: "IEC 61850", aliases: ["substation automation"] },
       { name: "Relay coordination", aliases: ["protection coordination", "grading"] },
       { name: "Relay settings calculation", aliases: ["settings", "protection settings"] },
-      { name: "Relay event & fault-record analysis", aliases: ["event log", "disturbance record", "comtrade"] },
-      { name: "Relay calibration & testing", aliases: ["secondary injection"] },
-      { name: "Travelling-wave fault location", aliases: ["tw", "traveling wave", "fault location"] },
-      { name: "Impedance-based fault location", aliases: ["takagi", "fault location"] },
+      { name: "Relay event-log analysis", aliases: ["event log", "fault record"] },
+      { name: "Relay calibration & testing", aliases: ["calibration"] },
+      { name: "Travelling-wave fault location (simulation research)", aliases: ["tw", "traveling wave", "fault location"] },
+      { name: "Impedance-based fault location (simulation research)", aliases: ["takagi", "fault location"] },
     ],
   },
   {
@@ -334,7 +340,7 @@ export const skillCategories: SkillCategory[] = [
 
 export const education = [
   {
-    degree: "M.S., Electrical Engineering",
+    degree: "M.S., Electrical Engineering (Power Systems)",
     school: "Wentworth Institute of Technology",
     location: "Boston, MA",
     date: "Sep 2026",
@@ -347,7 +353,7 @@ export const education = [
     location: "Chittagong, Bangladesh",
     date: "2018",
     detail:
-      "Capstone: designed a university bus-tracking system — live positions on Google Maps with a companion mobile app.",
+      "Capstone: designed a university bus-tracking system using Google Maps and a mobile app.",
   },
 ];
 
@@ -359,11 +365,11 @@ export const certifications = [
     id: "54/14",
   },
   {
-    name: "Industrial Technology on Electrical Engineering & Instrumentation (PLC / SCADA)",
+    name: "Industrial Technology on Electrical Engineering & Instrumentation",
     issuer: "Training Institute for Chemical Industries (TICI)",
     date: "Dec 2012",
     id: "00007480",
-    detail: "Grade A+",
+    detail: "Grade A+ · topics included PLC and SCADA/HMI",
   },
   {
     name: "Programmable Logic Controller (PLC)",

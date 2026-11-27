@@ -22,7 +22,7 @@ const NODES: Record<NodeId, { chip: string; title: string; specs: [string, strin
     title: "132 kV SF6 circuit breakers",
     specs: [
       ["Fleet", "4 × 132 kV SF6 CB"],
-      ["Testing", "Annual — 17-breaker program"],
+      ["Testing", "Annual program covering 17 breakers"],
     ],
   },
   tx: {
@@ -31,7 +31,7 @@ const NODES: Record<NodeId, { chip: string; title: string; specs: [string, strin
     specs: [
       ["Rating", "30/35 MVA · 132/11 kV"],
       ["Fleet", "2 power transformers maintained"],
-      ["OLTC", "Tap-changer operations cut 40%"],
+      ["OLTC", "Tap-changer operations reduced 40%"],
     ],
   },
   vcb: {
@@ -44,7 +44,7 @@ const NODES: Record<NodeId, { chip: string; title: string; specs: [string, strin
   },
   crt: {
     chip: "Cast-resin TX",
-    title: "Auxiliary cast-resin transformer",
+    title: "Cast-resin transformer",
     specs: [
       ["Rating", "500 kVA · 11/0.415 kV"],
       ["Scope", "Installed, tested, commissioned"],
@@ -56,6 +56,7 @@ const NODES: Record<NodeId, { chip: string; title: string; specs: [string, strin
     specs: [
       ["Units", "2 × 1,250 kVA diesel generators"],
       ["Transfer", "Automatic transfer switch (ATS)"],
+      ["Diagram", "Shown on LV side — illustrative"],
     ],
   },
   prot: {
@@ -71,11 +72,11 @@ const NODES: Record<NodeId, { chip: string; title: string; specs: [string, strin
 };
 
 const TW_VIEW = {
-  title: "Travelling-wave fault location",
+  title: "Travelling-wave principle — illustration",
   specs: [
-    ["Method", "Double-ended TW (terminals A & B)"],
+    ["Shown", "Generic double-ended TW location"],
     ["Distance", "d = (L + v·(tA − tB)) / 2"],
-    ["Research", "3,600 simulated faults — see thesis"],
+    ["Thesis", "200 km, 230 kV line · 3,600 EMT cases"],
   ] as [string, string][],
 };
 
@@ -106,22 +107,22 @@ export function SldDiagram() {
   return (
     <figure className="relative rounded-xl border border-line bg-surface">
       <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-3">
-        <figcaption className="eyebrow">Single-line diagram · simplified</figcaption>
+        <figcaption className="eyebrow">Simplified SLD · illustrative</figcaption>
         <button
           type="button"
           onClick={simulate}
           className="inline-flex h-11 items-center gap-1.5 rounded-lg border border-line px-3 text-xs font-medium text-ink transition-colors duration-150 hover:border-accent-line hover:bg-accent-soft md:h-8"
         >
           <Icon name="zap" size={14} className="text-accent" />
-          {faultActive ? "Re-run fault" : "Simulate line fault"}
+          {faultActive ? "Replay demo" : "Fault-location demo"}
         </button>
       </div>
 
       <svg
-        viewBox="0 0 560 392"
+        viewBox="0 0 560 420"
         className="sld block h-auto w-full"
         role="img"
-        aria-label="Simplified single-line diagram of a 132/11 kV LILO air-insulated substation: 132 kV line taps with SF6 breakers, a 30/35 MVA 132/11 kV transformer, 11 kV vacuum-breaker feeders, a 500 kVA cast-resin transformer, two 1,250 kVA standby generators with ATS, and MiCOM/SEL protection."
+        aria-label="Simplified, illustrative single-line diagram of a 132/11 kV LILO air-insulated substation — not the as-built drawing: 132 kV line taps with SF6 breakers, a 30/35 MVA 132/11 kV transformer, 11 kV vacuum-breaker feeders, a 500 kVA 11/0.415 kV cast-resin transformer, two 1,250 kVA standby generators with ATS on the low-voltage side, and MiCOM/SEL protection."
       >
         {/* ---- 132 kV line (LILO) ---- */}
         <g {...node("grid")}>
@@ -178,42 +179,46 @@ export function SldDiagram() {
         <rect className="sym" x="273" y="266" width="14" height="14" rx="2" />
 
         {/* 11 kV bus */}
-        <path className="bus" d="M70 300 H500" />
-        <text className="lbl lbl-strong" x="508" y="304">11 kV</text>
+        <path className="bus" d="M60 300 H470" />
+        <text className="lbl lbl-strong" x="478" y="304">11 kV</text>
 
         {/* ---- 11 kV VCB feeders ---- */}
         <g {...node("vcb")}>
-          <rect className="hit" x="296" y="306" width="134" height="62" rx="6" />
-          {[316, 350, 384, 418].map((x) => (
+          <rect className="hit" x="312" y="306" width="142" height="64" rx="6" />
+          {[330, 365, 400, 435].map((x) => (
             <g key={x}>
               <path className="cond" d={`M${x} 300 V314 M${x} 324 V346`} />
               <rect className="sym" x={x - 5} y="314" width="10" height="10" rx="1.5" />
               <path className="cond" d={`M${x - 4} 342 L${x} 348 L${x + 4} 342`} />
             </g>
           ))}
-          <text className="lbl" x="367" y="364" textAnchor="middle">11 kV VCB feeders</text>
+          <text className="lbl" x="382" y="364" textAnchor="middle">11 kV VCB feeders</text>
         </g>
 
-        {/* ---- Cast-resin transformer ---- */}
+        {/* ---- Cast-resin transformer 11/0.415 kV ---- */}
         <g {...node("crt")}>
-          <rect className="hit" x="440" y="306" width="62" height="70" rx="6" />
-          <path className="cond" d="M470 300 V320" />
-          <circle className="sym" cx="470" cy="329" r="9" style={{ fill: "transparent" }} />
-          <circle className="sym" cx="470" cy="343" r="9" style={{ fill: "transparent" }} />
-          <text className="lbl" x="470" y="368" textAnchor="middle">500 kVA</text>
+          <rect className="hit" x="40" y="306" width="96" height="46" rx="6" />
+          <path className="cond" d="M110 300 V313 M110 345 V362" />
+          <circle className="sym" cx="110" cy="322" r="9" style={{ fill: "transparent" }} />
+          <circle className="sym" cx="110" cy="336" r="9" style={{ fill: "transparent" }} />
+          <text className="lbl" x="95" y="333" textAnchor="end">500 kVA</text>
         </g>
 
-        {/* ---- Standby generation ---- */}
+        {/* 0.415 kV LV bus — standby generation connects at low voltage */}
+        <path className="bus" d="M70 362 H210" style={{ strokeWidth: 2 }} />
+        <text className="lbl lbl-strong" x="216" y="366">0.415 kV</text>
+
+        {/* ---- Standby generation (LV side, via ATS) ---- */}
         <g {...node("dg")}>
-          <rect className="hit" x="78" y="304" width="112" height="80" rx="6" />
-          <path className="cond" d="M134 300 V312 M134 326 V334 M104 334 H164 M104 334 V342 M164 334 V342" />
-          <rect className="sym" x="120" y="312" width="28" height="14" rx="2" />
-          <text className="lbl lbl-strong" x="134" y="322.5" textAnchor="middle" style={{ fontSize: 8 }}>ATS</text>
-          <circle className="sym" cx="104" cy="354" r="12" />
-          <circle className="sym" cx="164" cy="354" r="12" />
-          <text className="lbl lbl-strong" x="104" y="357.5" textAnchor="middle">G</text>
-          <text className="lbl lbl-strong" x="164" y="357.5" textAnchor="middle">G</text>
-          <text className="lbl" x="134" y="381" textAnchor="middle">2 × 1,250 kVA</text>
+          <rect className="hit" x="30" y="366" width="182" height="50" rx="6" />
+          <path className="cond" d="M170 362 V370 M170 384 V390 M150 390 H190 M150 390 V395 M190 390 V395" />
+          <rect className="sym" x="156" y="370" width="28" height="14" rx="2" />
+          <text className="lbl lbl-strong" x="170" y="380.5" textAnchor="middle" style={{ fontSize: 8 }}>ATS</text>
+          <circle className="sym" cx="150" cy="404" r="9" />
+          <circle className="sym" cx="190" cy="404" r="9" />
+          <text className="lbl lbl-strong" x="150" y="407.5" textAnchor="middle">G</text>
+          <text className="lbl lbl-strong" x="190" y="407.5" textAnchor="middle">G</text>
+          <text className="lbl" x="136" y="408" textAnchor="end">2 × 1,250 kVA</text>
         </g>
 
         {/* ---- Travelling-wave fault simulation ---- */}

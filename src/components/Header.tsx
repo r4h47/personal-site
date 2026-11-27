@@ -67,7 +67,7 @@ export function Header() {
   return (
     <header className="no-print sticky top-0 z-40 border-b border-line bg-canvas/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center gap-3 px-5 sm:px-8">
-        <a href="#top" className="flex min-w-0 items-center gap-3 rounded-lg py-1 pr-1" aria-label={`${person.shortName} — back to top`}>
+        <a href="#top" className="flex min-h-11 min-w-0 items-center gap-3 rounded-lg py-1 pr-1" aria-label={`${person.shortName} — back to top`}>
           <LogoMark size={32} />
           <span className="min-w-0 leading-tight">
             <span className="block text-[15px] font-semibold tracking-tight text-ink">{person.shortName}</span>

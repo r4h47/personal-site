@@ -72,7 +72,8 @@ Data-viz second series uses `ink-subtle` **plus a hatch pattern** — never colo
 - Micro-interactions 150–200ms `cubic-bezier(0.16, 1, 0.3, 1)`; transform/opacity only.
 - Scroll reveals are CSS-only (`animation-timeline: view()`), progressive — content is
   never hidden when unsupported.
-- The SLD travelling-wave pulse moves at constant speed, so arrival-time differences are real.
+- The SLD travelling-wave pulse is an illustration; it moves at constant speed so the arrival-time
+  difference is physically consistent. It never presents itself as live or measured data.
 - `prefers-reduced-motion: reduce` removes all non-essential motion.
 
 ## 7. Don't

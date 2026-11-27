@@ -105,9 +105,7 @@ export default function ResumePage() {
               <h3 className="font-semibold text-ink">{thesis.title}</h3>
               <p className="text-[13px] text-ink-subtle">M.S. thesis · {thesis.institution} · 2026</p>
               <p className="mt-1">
-                {thesis.scenarios} simulated scenarios in {thesis.tools}: TW detection {thesis.twDetection}% at {thesis.twMedianErrorM} m
-                median error vs. {thesis.takagiMedianErrorKm.toFixed(2)} km Takagi median error; {thesis.combinedWithin2km.toFixed(1)}% combined
-                accuracy within 2 km.
+                {`${thesis.line}, ${thesis.cases} fault cases (${thesis.conditions}, ${thesis.tools}): TW detection ${thesis.twDetection}% (${thesis.twDetected}/${thesis.cases}) with ${thesis.twMedianErrorM} m median / ${thesis.twMaxErrorM} m max error; Takagi median error ${thesis.takagiMedianErrorKm.toFixed(2)} km; ${thesis.combinedWithin2km.toFixed(1)}% combined accuracy within 2 km. Simulation only — not field-validated.`}
               </p>
             </div>
             <div className="print-avoid-break mt-3">

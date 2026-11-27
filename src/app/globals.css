@@ -199,19 +199,6 @@
   animation: bar-grow 520ms var(--ease) both;
 }
 
-@keyframes live-pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.35;
-  }
-}
-.live-dot {
-  animation: live-pulse 2.4s ease-in-out infinite;
-}
-
 @keyframes toast-in {
   from {
     opacity: 0;
@@ -335,9 +322,6 @@
   .tw-pulse,
   .tw-ripple {
     display: none;
-  }
-  .live-dot {
-    animation: none;
   }
 }
 
